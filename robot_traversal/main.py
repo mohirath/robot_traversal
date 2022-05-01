@@ -43,12 +43,16 @@ class Rover:
         """
         moving forward 1 grid point method
         """
+
         xmod = self.x + move[self.bearing][0]
         ymod = self.y + move[self.bearing][1]
+        print(self.intersection)
         # check intersection to see if nrover is not the same position as mrover
         #if (xmod, ymod) not in self.intersection:     
         if (xmod, ymod) in self.intersection:
             print("Rover will stop at this postion as rover has traveled earlier on this path", (xmod,ymod))
+            print("Final coordinates of rover is", (self.x, self.y))
+            exit()
         elif (xmod, ymod) not in self.intersection:
             
             if xmod <= self.xmax and xmod >= 0 and ymod <= self.ymax and ymod >= 0:
@@ -80,6 +84,7 @@ if __name__ == '__main__':
     for _ in range(rover_count):
         # get rover coordinates and NESW bearing
         x, y, bearing = input('coordinates for rover %d:' % count_a).split()
+        intersection.add((int(x), int(y)))
         count_a += 1
         # check to see that you havent deployed rovers with the same coordinates
         if [x, y, bearing] not in check_coords:
