@@ -46,7 +46,7 @@ class Rover:
 
         xmod = self.x + move[self.bearing][0]
         ymod = self.y + move[self.bearing][1]
-        print(self.intersection)
+        #print(self.intersection)
         # check intersection to see if nrover is not the same position as mrover
         #if (xmod, ymod) not in self.intersection:     
         if (xmod, ymod) in self.intersection:
